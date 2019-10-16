@@ -1,0 +1,199 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Food Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="food-listing-content">
+  <ng-container *ngIf="listing?.items">
+    <div class="listing-item" *ngFor="let item of listing.items">
+
+      <div class="cover-wrapper">
+        <ion-row class="image-row">
+          <ion-col size="12">
+            <a class="cover-anchor" [routerLink]="['/app/categories/food/', item.slug]">
+              <app-image-shell [mode]="'cover'" class="add-overlay cover-image" [src]="item.image"
+                [routerLink]="['/app/categories/travel/', item.slug]">
+                <app-aspect-ratio [ratio]="{w:35, h:15}">
+                  <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                      .small {
+                        font: italic 13px sans-serif;
+                      }
+
+                      .heavy {
+                        font: bold 30px sans-serif;
+                      }
+
+                      .heavyWhite {
+                        font: bold 40px sans-serif;
+                        fill: #ebbb00;
+                      }
+
+                      /* Note that the color of the text is set with the    *
+                         * fill property, the color property is for HTML only */
+                      .Rrrrr {
+                        font: italic 40px serif;
+                        fill: red;
+                      }
+                    </style>
+
+                    <!--text x="20" y="35" class="small">{{item.name}}</text>
+                      <text x="40" y="35" class="heavy">cat</text>
+                      <text x="55" y="55" class="small">is</text-->
+                    <text x="5" y="55" class="heavyWhite">{{item.name}}</text>
+                    <text x="5" y="105" class="heavyWhite">{{item.familyName}}</text>
+                  </svg>
+                  <div class="content-inside-item-image">
+
+                    <div class="item-cta">
+                      <span>Détails</span>
+                      <ion-icon class="cta-icon" name="arrow-round-forward"></ion-icon>
+                    </div>
+                  </div>
+                </app-aspect-ratio>
+              </app-image-shell>
+            </a>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row class="info-row">
+        <ion-col class="description-col">
+
+
+          <ion-row class="accommodation-row">
+            <ion-col size="1" class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+              </svg></ion-col>
+
+            <ion-col>
+              <span class="accommodation-value">
+                  <a  href="#" (click)="launchMap()">
+                      <app-text-shell [data]="item.address"></app-text-shell>
+                    </a>
+
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row class="accommodation-row">
+            <ion-col size="1" class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z" />
+              </svg></ion-col>
+
+            <ion-col>
+              <span class="accommodation-value">
+                <a  href="#" (click)="callNow(item.tel)">
+                  <app-text-shell [data]="item.tel"></app-text-shell>
+                </a>
+              </span>
+            </ion-col>
+          </ion-row>
+
+
+
+
+
+        </ion-col>
+        <ion-col class="description-col">
+          <ion-row class="accommodation-row">
+
+            <ion-col size="1" class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M12.042 23.648c-7.813 0-12.042-4.876-12.042-11.171 0-6.727 4.762-12.125 13.276-12.125 6.214 0 10.724 4.038 10.724 9.601 0 8.712-10.33 11.012-9.812 6.042-.71 1.108-1.854 2.354-4.053 2.354-2.516 0-4.08-1.842-4.08-4.807 0-4.444 2.921-8.199 6.379-8.199 1.659 0 2.8.876 3.277 2.221l.464-1.632h2.338c-.244.832-2.321 8.527-2.321 8.527-.648 2.666 1.35 2.713 3.122 1.297 3.329-2.58 3.501-9.327-.998-12.141-4.821-2.891-15.795-1.102-15.795 8.693 0 5.611 3.95 9.381 9.829 9.381 3.436 0 5.542-.93 7.295-1.948l1.177 1.698c-1.711.966-4.461 2.209-8.78 2.209zm-2.344-14.305c-.715 1.34-1.177 3.076-1.177 4.424 0 3.61 3.522 3.633 5.252.239.712-1.394 1.171-3.171 1.171-4.529 0-2.917-3.495-3.434-5.246-.134z" />
+              </svg>
+            </ion-col>
+
+            <ion-col>
+              <span class="accommodation-value">
+                <a href="mailto:{{item.email}}">
+                  <app-text-shell [data]="item.email"></app-text-shell>
+                </a>
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row class="accommodation-row">
+            <ion-col size="1" class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h2.994c-.059 1.143-.212 2.24-.456 3.279-.823-.12-1.674-.188-2.538-.222zm1.957 2.162c-.499 1.33-1.159 2.497-1.957 3.456v-3.62c.666.028 1.319.081 1.957.164zm-1.957-7.219v-3.015c.868-.034 1.721-.103 2.548-.224.238 1.027.389 2.111.446 3.239h-2.994zm0-5.014v-3.661c.806.969 1.471 2.15 1.971 3.496-.642.084-1.3.137-1.971.165zm2.703-3.267c1.237.496 2.354 1.228 3.29 2.146-.642.234-1.311.442-2.019.607-.344-.992-.775-1.91-1.271-2.753zm-7.241 13.56c-.244-1.039-.398-2.136-.456-3.279h2.994v3.057c-.865.034-1.714.102-2.538.222zm2.538 1.776v3.62c-.798-.959-1.458-2.126-1.957-3.456.638-.083 1.291-.136 1.957-.164zm-2.994-7.055c.057-1.128.207-2.212.446-3.239.827.121 1.68.19 2.548.224v3.015h-2.994zm1.024-5.179c.5-1.346 1.165-2.527 1.97-3.496v3.661c-.671-.028-1.329-.081-1.97-.165zm-2.005-.35c-.708-.165-1.377-.373-2.018-.607.937-.918 2.053-1.65 3.29-2.146-.496.844-.927 1.762-1.272 2.753zm-.549 1.918c-.264 1.151-.434 2.36-.492 3.611h-3.933c.165-1.658.739-3.197 1.617-4.518.88.361 1.816.67 2.808.907zm.009 9.262c-.988.236-1.92.542-2.797.9-.89-1.328-1.471-2.879-1.637-4.551h3.934c.058 1.265.231 2.488.5 3.651zm.553 1.917c.342.976.768 1.881 1.257 2.712-1.223-.49-2.326-1.211-3.256-2.115.636-.229 1.299-.435 1.999-.597zm9.924 0c.7.163 1.362.367 1.999.597-.931.903-2.034 1.625-3.257 2.116.489-.832.915-1.737 1.258-2.713zm.553-1.917c.27-1.163.442-2.386.501-3.651h3.934c-.167 1.672-.748 3.223-1.638 4.551-.877-.358-1.81-.664-2.797-.9zm.501-5.651c-.058-1.251-.229-2.46-.492-3.611.992-.237 1.929-.546 2.809-.907.877 1.321 1.451 2.86 1.616 4.518h-3.933z" />
+              </svg>
+            </ion-col>
+
+            <ion-col>
+              <span class="accommodation-value">
+                <a href="{{item.url}}" target="_blank" ssrc="2.4">
+                  <app-text-shell [data]="item.url"></app-text-shell>
+                </a>
+              </span>
+            </ion-col>
+          </ion-row>
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="info-row">
+        <ion-col class="description-col">
+          <ion-row class="item-tags">
+            <ion-col class="code-wrapper">
+              <span class="item-code">
+                <app-text-shell [data]="item.cat"></app-text-shell>
+              </span>
+
+            </ion-col>
+            <ion-col class="code-wrapper">
+              <span class="item-code">
+                <app-text-shell [data]="item.subcat"></app-text-shell>
+              </span>
+
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class="time-left-wrapper" size="5"
+          [ngClass]="{'countdown-active': ((item.onlineDate | appTimeDifference) > 0 && (item.onlineDate | appTimeDifference) <= 2)}">
+          <span class="expiration-cta">En ligne depuis :</span>
+          <span class="item-time-left">
+            <app-text-shell [data]="(item.onlineDate | appTimeAgo)"></app-text-shell>
+          </span>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="info-row">
+        <ion-col class="description-col">
+          <ion-row class="item-tags">
+            <ion-col class="tag-wrapper" *ngFor="let tag of item.tags">
+              <span class="item-tag">
+                <app-text-shell [data]="tag"></app-text-shell>
+              </span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class="stats-col" size="2">
+          <span class="item-rating" [attr.ratingBase]="item.rating | floor">
+            <app-text-shell [data]="item.rating"></app-text-shell>
+          </span>
+          <div class="item-price-range">
+            <span class="price" *ngFor="let price of [].constructor(item.priceRange)">$</span>
+            <span class="no-price" *ngFor="let price of [].constructor(5 - (item.priceRange || 1))">$</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ng-container>
+
+
+    <ion-fab horizontal="end" vertical="center" slot="fixed">
+      <ion-fab-button color="danger" onclick="add()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

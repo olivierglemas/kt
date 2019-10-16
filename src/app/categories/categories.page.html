@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Categories
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="categories-list">
+    <ion-col class="category-item travel-category" size="4">
+      <app-image-shell [mode]="'cover'" class="category-cover" animation="spinner" [src]="'./assets/images/action-256.png'">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <a class="category-anchor" [routerLink]="['/app/home']">
+            <h2 class="category-title">Action</h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    
+  </ion-row>
+</ion-content>

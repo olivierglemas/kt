@@ -1,0 +1,39 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "PACKAGE_NAME": "com.ionicthemes.ionic4fullapp"
+    }
+  },
+  "dependent_plugins": {}
+}

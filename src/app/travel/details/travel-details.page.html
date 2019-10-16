@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/travel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Travel Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="travel-details-content">
+  <ion-row class="image-row">
+    <ion-col size="12">
+
+        <app-image-shell [mode]="'cover'" class="item-image" [src]="details?.backdrop_path" >
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+           
+          </app-aspect-ratio>
+        </app-image-shell>
+
+      <!-- <app-image-shell [mode]="'cover'" animation="spinner" class=" details-image" [src]="details?.backdrop_path">
+        
+      </app-image-shell> -->
+    </ion-col>
+  </ion-row>
+  <ion-row class="description-row">
+    <ion-col size="12">
+      <h3 class="details-name">
+        <app-text-shell animation="bouncing" [data]="details?.title"></app-text-shell>
+        <!-- <app-text-shell animation="bouncing" [data]="(details?.original_title)"></app-text-shell> -->
+      </h3>
+    </ion-col>
+    <ion-col size="12">
+      <div class="details-score">
+        <div class="score-item">
+          <ion-icon class="score-icon" ios="ios-star-outline" md="md-star-outline"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="details?.vote_average"></app-text-shell>
+          </div>
+        </div>
+        <div class="score-item">
+          <ion-icon class="score-icon" src="./assets/sample-icons/travel/comments.svg"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="details?.vote_count"></app-text-shell>
+          </div>
+        </div>
+        <div class="score-item">
+            <ion-icon class="score-icon"  ios="ios-calendar" md="md-calendar"></ion-icon>
+            <div class="score-value">
+              <app-text-shell [data]="details?.release_date"></app-text-shell>
+            </div>
+          </div>
+          <div class="score-item">
+              <ion-icon class="score-icon"  ios="ios-timer" md="md-timer"></ion-icon>
+              <div class="score-value">
+                <app-text-shell [data]="details?.runtime"></app-text-shell>
+              </div>
+            </div>  
+      </div>
+    </ion-col>
+    
+    <ion-col size="12">
+      <p class="details-description">
+        <app-text-shell animation="bouncing" lines="6" [data]="details?.overview"></app-text-shell>
+      </p>
+    </ion-col>
+  </ion-row>
+ 
+  
+</ion-content>

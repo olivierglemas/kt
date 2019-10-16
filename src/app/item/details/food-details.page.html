@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/food"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Food Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="food-details-content">
+  
+  <ion-row class="description-row">
+    <ion-col size="9">
+      <h3 class="details-name">
+        <app-text-shell [data]="details?.name"></app-text-shell>
+      </h3>
+      <p class="details-style">
+        <app-text-shell [data]="details?.style"></app-text-shell>
+      </p>
+    </ion-col>
+    <ion-col size="3">
+      <div class="details-price-range">
+        <span class="price" *ngFor="let price of [].constructor(details?.priceRange)">$</span>
+        <span class="no-price" *ngFor="let price of [].constructor(5 - (details?.priceRange || 1))">$</span>
+      </div>
+    </ion-col>
+    <ion-col size="12">
+      <ion-row class="details-scores restaurant-scores">
+        <div class="restaurant-rating" [attr.ratingBase]="details?.avgRating | floor">
+          <app-text-shell [data]="details?.avgRating"></app-text-shell>
+        </div>
+        <ion-col class="score-item restaurant-score" *ngFor="let rating of details?.ratings">
+          <ion-icon *ngIf="rating.concept" class="score-icon" [src]="(rating.concept) ? './assets/sample-icons/food/' + rating.concept + '-rate.svg' : ''"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="rating.rate"></app-text-shell>
+          </div>
+        </ion-col>
+        <ion-col class="score-item restaurant-score reviews-count">
+          <ion-icon class="score-icon" src="./assets/sample-icons/food/reviews.svg"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="details?.reviewsCount"></app-text-shell>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <div class="location-wrapper">
+    <div class="location-header">
+      <h3 class="detail-title">Address</h3>
+      <span class="location-address">
+        <app-text-shell [data]="details.location?.address"></app-text-shell>
+      </span>
+    </div>
+    <!-- <app-aspect-ratio [ratio]="{w: 64, h: 20}">
+      <app-image-shell [src]="'https://maps.googleapis.com/maps/api/staticmap?center=' + details.location?.latlng + '&zoom=15&size=640x200&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xd9453a%7C' + details.location?.latlng + '&key=YOUR_KEY_HERE'">
+      </app-image-shell>
+    </app-aspect-ratio> -->
+    <app-aspect-ratio [ratio]="{w: 64, h: 20}">
+      <app-image-shell class="location-image" animation="spinner" [src]="details.location?.mapImage" [alt]="'location map'"></app-image-shell>
+    </app-aspect-ratio>
+  </div>
+  <ion-row class="details-tags">
+    <ion-col class="tag-wrapper" *ngFor="let tag of details?.tags">
+      <span class="item-tag">
+        <app-text-shell [data]="tag"></app-text-shell>
+      </span>
+    </ion-col>
+  </ion-row>
+  <hr class="details-divider">
+ 
+  <div class="popular-dishes-wrapper">
+    <h3 class="detail-title">Popular dishes</h3>
+    <ion-row class="popular-dish" *ngFor="let dish of details?.popularDishes">
+      <ion-col size="9">
+        <span class="dish-name">
+          <app-text-shell [data]="dish.name"></app-text-shell>
+        </span>
+        <ion-progress-bar class="dish-score" type="determinate" [value]="(dish.rate / 5)"></ion-progress-bar>
+      </ion-col>
+      <ion-col size="3" class="dish-votes-count">
+        <div class="dish-votes-value">
+          <app-text-shell [data]="dish.votesCount"></app-text-shell>
+        </div>
+        <ion-icon class="dish-votes-icon" name="heart-empty"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

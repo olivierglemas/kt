@@ -1,0 +1,238 @@
+<!--ion-header>
+    <ion-toolbar color="primary">
+      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header-->
+  
+  
+  <ion-content>
+      
+          
+         
+          <ion-slides class="getting-started-slides" pager="true">
+            <ion-slide class="browsing-categories-slide question-slide">
+                
+              <ion-row class="slide-inner-row">
+                  
+                      
+                <ion-col class="question-options-col" size="12">
+                  <h2 class="slide-title">Quelle ville voulez vous suivre?</h2>
+                  <ion-toolbar color="primary">
+                      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+                    </ion-toolbar>
+                    
+            
+                        <ion-list [hidden]="autocompleteItems.length == 0">
+                          <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+                            {{ item.description }}
+                          </ion-item>
+                       </ion-list>
+                       <h2 class="slide-title">Ou </h2>
+                       <h2 class="slide-title">Sélectionnez une ville pré-établie</h2>
+                  <form class="getting-started-form" [formGroup]="gettingStartedForm">
+                  <ion-list class="question-options-list">
+                    <ion-radio-group formControlName="browsingCategory">
+                      <ion-item class="question-option">
+                        <ion-label>Mexico</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('MexicoCityDistrictfédéralMexique')" value="Mexico"></ion-radio>
+                      </ion-item>
+                      <ion-item class="question-option">
+                        <ion-label>New-York</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('NewYorkÉtatdeNewYorkÉtats-Unis')" value="New-York"></ion-radio>
+                      </ion-item>
+                      <ion-item class="question-option">
+                        <ion-label>Montréal</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('MontréalQCCanada')" value="Montréal"></ion-radio>
+                      </ion-item>
+                      <ion-item class="question-option">
+                        <ion-label>Paris</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('ParisFrance')" value="Paris"></ion-radio>
+                      </ion-item>
+                      <ion-item class="question-option">
+                        <ion-label>Moscow</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('Moscow, Russie')" value="Moscow"></ion-radio>
+                      </ion-item>
+                      <ion-item class="question-option">
+                        <ion-label>Tokyo</ion-label>
+                        <ion-radio (ionSelect)="radioChecked('TokyoJapon')" value="Tokyo"></ion-radio>
+                      </ion-item>
+                    </ion-radio-group>
+                  </ion-list>
+                </form>
+                </ion-col>
+              
+              
+              </ion-row>
+                
+            
+            </ion-slide>
+            
+              
+              
+            
+          </ion-slides>
+        
+    
+  
+   
+  </ion-content>
+  
+
+  <ion-footer>
+      <ion-button class="signup-button" color="secondary" expand="block" (click)="selectedCity()" [routerLink]="['/auth/signup']">Sign Up</ion-button>
+   </ion-footer>
+    
+  
+  
+
+<!--ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="skip-getting-started-button" fill="clear" [routerLink]="['/auth/login']">skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+    </ion-toolbar>
+</ion-header-->
+
+<!--ion-content>
+    <form class="getting-started-form" [formGroup]="gettingStartedForm">
+    <ion-slides class="getting-started-slides" pager="true">
+      <ion-slide class="browsing-categories-slide question-slide">
+        <ion-row class="slide-inner-row">
+          <ion-col class="question-options-col" size="12">
+            <h2 class="slide-title">Quelle ville voulez vous suivre?</h2>
+            
+            <div id='map'></div>
+            <ion-list class="question-options-list">
+              <ion-radio-group formControlName="browsingCategory">
+                <ion-item class="question-option">
+                  <ion-label>Mexico</ion-label>
+                  <ion-radio value="woman"></ion-radio>
+                </ion-item>
+                <ion-item class="question-option">
+                  <ion-label>New-York</ion-label>
+                  <ion-radio value="men"></ion-radio>
+                </ion-item>
+                <ion-item class="question-option">
+                  <ion-label>Montréal</ion-label>
+                  <ion-radio value="kids"></ion-radio>
+                </ion-item>
+                <ion-item class="question-option">
+                  <ion-label>Paris</ion-label>
+                  <ion-radio value="petit"></ion-radio>
+                </ion-item>
+                <ion-item class="question-option">
+                  <ion-label>Moscou</ion-label>
+                  <ion-radio value="plus-size"></ion-radio>
+                </ion-item>
+                <ion-item class="question-option">
+                  <ion-label>Tokyo</ion-label>
+                  <ion-radio value="new-in"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+      <ion-slide class="interests-to-follow-slide question-slide">
+        <ion-row class="slide-inner-row">
+          <ion-col class="heading-col">
+            <h2 class="slide-title">Choisissez les catégories que vous voulez suivre</h2>
+            <p class="slide-subtitle">
+              Vous pourrez ajouter ou modifier plus tard
+            </p>
+          </ion-col>
+          <ion-col class="question-options-col">
+            <ion-row class="options-list-row" formGroupName="followingInterests">
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category1-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Santé</span>
+                      <ion-checkbox checked=true formControlName="tops"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category2-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Hôtels</span>
+                      <ion-checkbox formControlName="dresses"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category3-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Restaurants</span>
+                      <ion-checkbox formControlName="jeans"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category4-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Alimentation</span>
+                      <ion-checkbox checked=true formControlName="jackets"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category5-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Loisirs</span>
+                      <ion-checkbox formControlName="shoes"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category6-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Logements</span>
+                      <ion-checkbox formControlName="glasses"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category5-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Personnel de maison</span>
+                      <ion-checkbox formControlName="shoes"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+              <ion-col size="4">
+                <app-checkbox-wrapper class="custom-checkbox">
+                  <app-image-shell [mode]="'cover'" animation="spinner" class="checkbox-cover add-overlay" [src]="'./assets/sample-images/getting-started/category6-1.1.png'">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <span class="checkbox-title">Tout</span>
+                      <ion-checkbox formControlName="glasses"></ion-checkbox>
+                    </app-aspect-ratio>
+                  </app-image-shell>
+                </app-checkbox-wrapper>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col class="call-to-action-col">
+            <ion-button class="signup-button" color="secondary" expand="block" [routerLink]="['/auth/signup']">Sign Up</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  </form>
+</ion-content-->

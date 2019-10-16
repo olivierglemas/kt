@@ -1,0 +1,107 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "la-olla",
+      "priceRange": 3,
+      "icon": "./assets/sample-images/food/olivier.svg",
+      "image": "./assets/sample-images/categories/sante.jpg",
+      "name": "Dr Valdez",
+      "familyName": "DASA",
+      "cat": "Médecin",
+      "subcat": "Généraliste",
+      "rating": 5.0,
+      "tel":"55 11 55 99 66",
+      "email":"olivier.glemas@gmail.com",
+      "url":"https://artofpari.com",
+      "description":"Jeune gynécologue, professionnelle et douce. Elle parle français couramment car était une élève du LFM.",
+      "onlineDate": "05/09/2019",
+      "tags": [
+        "vegetarian",
+        "vegan",
+        "gluten free",
+        "desserts"
+      ],
+      "location": {
+        "address": "1900 Powell Street",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "pictures": [
+        "./assets/sample-images/food/Cat1Foto1-1.1.png",
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png",
+        "./assets/sample-images/food/Cat1Foto4-1.1.png",
+        "./assets/sample-images/food/Cat1Foto5-1.1.png",
+        "./assets/sample-images/food/Cat1Foto1-1.1.png",
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png"
+      ],
+      "address": "6782 Bobwhite Crossing"
+    },
+    {
+      "id": 2,
+      "slug": "salad-heaven",
+      "priceRange": 1,
+      "icon": "./assets/sample-images/food/salad-heaven-icon.svg",
+      "image": "./assets/sample-images/food/salad-heaven.jpg",
+      "name": "Salad",
+      "familyName": "Heaven",
+      "rating": 3.9,
+      "tags": [
+        "salads",
+        "sushi",
+        "vegetarian",
+        "desserts",
+        "tapas"
+      ],
+      "location": {
+        "address": "1900 Powell Street",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "pictures": [
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png",
+        "./assets/sample-images/food/Cat2Foto3-1.1.png",
+        "./assets/sample-images/food/Cat2Foto4-1.1.png",
+        "./assets/sample-images/food/Cat2Foto5-1.1.png",
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png"
+      ],
+      "address": "1 Buhler Parkway"
+    },
+    {
+      "id": 3,
+      "slug": "les-miserables",
+      "priceRange": 2,
+      "icon": "./assets/sample-images/food/les-miserables-icon.svg",
+      "image": "./assets/sample-images/food/les-miserables.jpg",
+      "name": "Les ",
+      "familyName": "Miserables",
+      "rating": 2.5,
+      "tags": [
+        "meats",
+        "burgers",
+        "fish",
+        "desserts"
+      ],
+      "location": {
+        "address": "1900 Powell Street",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "pictures": [
+        "./assets/sample-images/food/Cat4Foto1-1.1.png",
+        "./assets/sample-images/food/Cat4Foto2-1.1.png",
+        "./assets/sample-images/food/Cat4Foto3-1.1.png",
+        "./assets/sample-images/food/Cat4Foto4-1.1.png",
+        "./assets/sample-images/food/Cat4Foto5-1.1.png"
+      ],
+      "address": "7104 Burning Wood Park"
+    }
+  ]
+}

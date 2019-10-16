@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Travel Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="listing?.items">
+    <div class="listing-item" *ngFor="let item of listing.items">
+      <ion-row class="image-row">
+        <ion-col size="12">
+          <app-image-shell [mode]="'cover'" class="add-overlay item-image" [src]="item.affiche" [routerLink]="['/app/categories/travel/', item.index]">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-col>
+      </ion-row>
+      <ion-row class="info-row">
+        <ion-col class="main-info-col">
+          <h3 class="item-name">
+            <a class="name-anchor" [routerLink]="['/app/categories/travel/', item.iddb]">
+              <app-text-shell animation="bouncing" [data]="(item?.titre && item?.groupe) ? (item.titre + ' - ' + item.groupe) : (item.titre)"></app-text-shell>
+            </a>
+          </h3>
+          <p class="item-description">
+            <app-text-shell animation="bouncing" [data]="item.overview" lines="3"></app-text-shell>
+          </p>
+          <p class="item-address">
+            <app-text-shell animation="bouncing" [data]="item.groupe"></app-text-shell>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="stats-row">
+        <ion-col size="2" class="item-rating">
+          <span class="rating-value">
+            <app-text-shell [data]="item.titre"></app-text-shell>
+          </span>
+          <ion-icon class="stats-icon" src="./assets/sample-icons/travel/star.svg"></ion-icon>
+        </ion-col>
+        <ion-col size="2" class="item-reviews">
+          <span class="reviews-count">
+            <app-text-shell [data]="item.titre"></app-text-shell>
+          </span>
+          <ion-icon class="stats-icon" src="./assets/sample-icons/travel/comments.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ng-container>
+</ion-content>

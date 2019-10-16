@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>20 Derniers Films</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="listing?.items">
+      <ion-row class="image-row">
+    <!-- <div class="listing-item" *ngFor="let item of listing.items"> -->
+      
+        <ion-col size="6" class="listing-item" *ngFor="let item of listing.items">
+          <app-image-shell [mode]="'cover'" class="item-image" [src]="item.affiche" [routerLink]="['/app/details/', item.iddb]">
+            <app-aspect-ratio [ratio]="{w:21, h:30}">
+             
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-col>
+      
+      
+     
+    <!-- </div> -->
+  </ion-row>
+  </ng-container>
+</ion-content>
