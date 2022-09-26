@@ -31,7 +31,7 @@
     "@angular/pwa": "^0.10.7",
     "@angular/router": "^7.2.9",
     "@angular/service-worker": "7.2.9",
-    "@capacitor/cli": "^1.0.0-beta.24",
+    "@capacitor/cli": "^1.5.3",
     "@capacitor/core": "1.0.0-beta.11",
     "@ionic-native/call-number": "^5.6.1",
     "@ionic-native/core": "^5.6.0",
